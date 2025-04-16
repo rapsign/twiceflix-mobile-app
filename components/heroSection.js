@@ -84,20 +84,14 @@ const HeroSection = () => {
           <Text style={styles.title}>{latestVideo.title}</Text>
           <Text style={styles.description}>{latestVideo.description}</Text>
           <View style={styles.buttonRow}>
-            <TouchableOpacity style={styles.playButton} onPress={handlePlay}>
+            <TouchableOpacity
+              style={styles.playButton}
+              onPress={() =>
+                navigation.navigate("VideoDetail", { video: latestVideo })
+              }
+            >
               <Ionicons name="play" size={20} color="black" />
               <Text style={styles.playText}>Play</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.infoButton}
-              onPress={() => setModalVisible(true)}
-            >
-              <Ionicons
-                name="information-circle-outline"
-                size={20}
-                color="white"
-              />
-              <Text style={styles.infoText}>More Info</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -140,13 +134,13 @@ const styles = StyleSheet.create({
   },
   title: {
     color: "#fff",
-    fontSize: 28,
+    fontSize: 20,
     fontWeight: "bold",
     marginBottom: 10,
   },
   description: {
     color: "#fff",
-    fontSize: 16,
+    fontSize: 14,
     marginBottom: 20,
   },
   buttonRow: {
@@ -158,24 +152,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     padding: 10,
-    paddingHorizontal: 20,
+    paddingHorizontal: 16,
     borderRadius: 4,
   },
   playText: {
     color: "#000",
-    marginLeft: 8,
-    fontWeight: "bold",
-  },
-  infoButton: {
-    backgroundColor: "rgba(255, 255, 255, 0.29)",
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 10,
-    paddingHorizontal: 20,
-    borderRadius: 4,
-  },
-  infoText: {
-    color: "#fff",
     marginLeft: 8,
     fontWeight: "bold",
   },
